@@ -7,7 +7,7 @@ import (
 
 func main() {
 	// prices := []float64{10, 20, 30}
-	taxRates := []float64{0, 0.7, 0.7, 0.15}
+	taxRates := []float64{0, 0.7, 0.10, 0.15}
 
 	for _, taxRate := range taxRates {
 		priceJob := prices.NewTaxIncludedPriceJob(taxRate)

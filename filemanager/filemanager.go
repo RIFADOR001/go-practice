@@ -19,6 +19,11 @@ func (fm FileManager) ReadLines() ([]string, error) {
 		return nil, errors.New("Failed to open file.")
 	}
 
+	// The defer keyword indicates that the function will run just before
+	// the functions ends, either if it ends successfully or because of
+	// an error
+	defer file.Close()
+
 	scanner := bufio.NewScanner(file)
 
 	var lines []string
@@ -29,10 +34,10 @@ func (fm FileManager) ReadLines() ([]string, error) {
 
 	err = scanner.Err()
 	if err != nil {
-		file.Close()
+		// file.Close()
 		return nil, errors.New("Failed to read line in file.")
 	}
-	file.Close()
+	// file.Close()
 	return lines, nil
 }
 
